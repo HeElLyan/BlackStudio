@@ -26,7 +26,7 @@ public class UsersDaoJDBCTemplateImp implements UsersDao {
     private final String SQL_SELECT_ALL_BY_USERNAME =
             "SELECT * FROM black_studio.client WHERE username = ?";
 
-    public UsersDaoJDBCTemplateImp(DataSource dataSource) {
+    UsersDaoJDBCTemplateImp(DataSource dataSource) {
         this.template = new JdbcTemplate((javax.sql.DataSource) dataSource);
     }
 
@@ -48,9 +48,6 @@ public class UsersDaoJDBCTemplateImp implements UsersDao {
 
         return usersMap.get(id);
     };
-
-    public UsersDaoJDBCTemplateImp(DriverManagerDataSource dataSource) {
-    }
 
     @Override
     public List<User> findAllByUsername(String username) {
@@ -79,11 +76,6 @@ public class UsersDaoJDBCTemplateImp implements UsersDao {
 
     @Override
     public void delete(User model) {
-
-    }
-
-    @Override
-    public void delete(Integer id) {
 
     }
 
