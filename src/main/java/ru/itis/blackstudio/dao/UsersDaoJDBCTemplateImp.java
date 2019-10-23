@@ -49,6 +49,9 @@ public class UsersDaoJDBCTemplateImp implements UsersDao {
         return usersMap.get(id);
     };
 
+    UsersDaoJDBCTemplateImp(DriverManagerDataSource dataSource) {
+    }
+
     @Override
     public List<User> findAllByUsername(String username) {
         return template.query(SQL_SELECT_ALL_BY_USERNAME, userRowMapper, username);

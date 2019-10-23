@@ -34,13 +34,16 @@ public class SignUpServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getServletContext().getRequestDispatcher("/jsp/logIn.jsp").forward(request, response);
+        request.getServletContext().getRequestDispatcher("/jsp/signUp.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
+        String name = req.getParameter("name");
         String password = req.getParameter("password");
+        String phone = req.getParameter("phone");
+        String email = req.getParameter("email");
         try {
             Statement statement = connection.createStatement();
 //            String sqlInsert = "INSERT INTO black_studio.client(username, password)" +
