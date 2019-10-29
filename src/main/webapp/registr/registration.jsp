@@ -27,8 +27,8 @@
             <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Sign Up</button></div><a class="already" href="#">You already have an account? Login here.</a></form>
     </div>
 </div>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets_registration/js/jquery.min.js"></script>
+<script src="assets_registration/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>
