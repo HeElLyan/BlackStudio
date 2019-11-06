@@ -9,44 +9,66 @@ import java.util.List;
 import java.util.Optional;
 
 public class UsersDaoJDBC implements UsersDao {
+
     //language=SQL
     private final String SQL_SELECT_ALL = "SELECT * FROM black_studio.client;";
+
     //language=SQL
     private final String SQL_SELECT_BY_ID =
             "SELECT * FROM black_studio.client WHERE id_client = ?";
 
+    //language=SQL
+    private final String SQL_SELECT_BY_USERNAME =
+            "SELECT * FROM black_studio.client WHERE username = ?";
+
     private Connection connection;
 
-    public UsersDaoJDBC(DataSource dataSource) {
-        try {
-            this.connection = dataSource.getConnection();
-        } catch (SQLException e) {
-            throw new IllegalStateException(e);
-        }
+    public UsersDaoJDBC(Connection connection) {
+        this.connection = connection;
     }
 
-    @Override
-    public List<User> findAllByUsername(String username) {
-        return null;
-    }
+    private RowMapper<User> rowMapper = resultSet -> {
+        int id = resultSet.getInt("id");
+        String username = resultSet.getString("username");
+        String password = resultSet.getString("password");
+        return new User(id, username, password);
+    };
 
-    @Override
-    public Optional<User> find(Integer id) {
+    public Optional<User> findById(Integer id) {
         try {
             PreparedStatement statement = connection.prepareStatement(SQL_SELECT_BY_ID);
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                String username = resultSet.getString("username");
-                String password = resultSet.getString("password");
-                return Optional.of(new User(id, username, password));
+                return Optional.of(rowMapper.rowMap(resultSet));
 
             }
             return Optional.empty();
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
+    }
+
+    public Optional<User> findByUsername(String username) {
+        try {
+            PreparedStatement statement = connection.prepareStatement(SQL_SELECT_BY_USERNAME);
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                return Optional.of(rowMapper.rowMap(resultSet));
+
+            }
+            return Optional.empty();
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    @Override
+    public Optional<User> find(Integer id) {
+        return Optional.empty();
     }
 
     @Override
@@ -84,4 +106,6 @@ public class UsersDaoJDBC implements UsersDao {
             throw new IllegalStateException(e);
         }
     }
+
+
 }

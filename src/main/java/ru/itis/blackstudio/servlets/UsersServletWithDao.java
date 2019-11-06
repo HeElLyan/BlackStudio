@@ -1,8 +1,6 @@
 package ru.itis.blackstudio.servlets;
 
 import ru.itis.blackstudio.dao.UsersDao;
-import ru.itis.blackstudio.models.User;
-import ru.itis.blackstudio.services.Auth;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,10 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Optional;
 
-@WebServlet("/logIn")
-public class LogInServlet extends HttpServlet {
+@WebServlet("/users")
+public class  UsersServletWithDao extends HttpServlet {
     private UsersDao usersDao;
 //
 //    @Override
@@ -41,31 +38,20 @@ public class LogInServlet extends HttpServlet {
 //    }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 //        Optional<User> user = usersDao.find(1);
+//        int i = 0;
 //
-//        Optional<User> users;
-//        if (request.getParameter("firstName") != null) {
-//            String username = request.getParameter("firstName");
-//            users = usersDao.findByUsername(username);
+//        List<User> users = null;
+//        if (req.getParameter("firstName") != null) {
+//            String firstName = req.getParameter("firstName");
+//            users = usersDao.findAllByUsername(firstName);
 //        } else {
 //            users = usersDao.findAll();
 //        }
-//        request.setAttribute("usersFromServer", users);
-        request.getServletContext().getRequestDispatcher("/jsp/logIn.jsp").forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        Auth auth = new Auth();
-        Optional<User> user = auth.signIn(username, password);
-        if(user.isPresent()){
-            request.getServletContext().getRequestDispatcher("/jsp/main.jsp").forward(request, response);
-        } else {
-            doGet(request, response);
-        }
-
+//        req.setAttribute("usersFromServer", users);
+//        req.getServletContext().getRequestDispatcher("/jsp/users.jsp").forward(req, resp);
+//    }
     }
 }
