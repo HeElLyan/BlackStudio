@@ -1,6 +1,7 @@
 package ru.itis.blackstudio.servlets;
 
 import ru.itis.blackstudio.constants.Singletons;
+import ru.itis.blackstudio.services.Auth;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,25 +15,6 @@ import java.util.Properties;
 
 @WebServlet("/signUp")
 public class SignUpServlet extends HttpServlet {
-//    private Connection connection;
-//
-//    @Override
-//    public void init() throws ServletException {
-//        Properties properties = new Properties();
-//
-//        try {
-//            properties.load(new FileInputStream(getServletContext().getRealPath("/WEB-INF/classes/db.properties")));
-//            String dbUrl = properties.getProperty("db.url");
-//            String dbUsername = properties.getProperty("db.username");
-//            String dbPassword = properties.getProperty("db.password");
-//            String driverClassName = properties.getProperty("db.driverClassName");
-//
-//            Class.forName(driverClassName);
-//            connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-//        } catch (IOException | SQLException | ClassNotFoundException e) {
-//            throw new IllegalStateException(e);
-//        }
-//    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,26 +27,14 @@ public class SignUpServlet extends HttpServlet {
         String name = req.getParameter("name");
         String password = req.getParameter("password");
         String phone = req.getParameter("phone");
+        int stars = Integer.parseInt(req.getParameter("stars"));
+        String time_signup = req.getParameter("time_signup");
         String email = req.getParameter("email");
+        String birth_date = req.getParameter("birth_date");
+        String city = req.getParameter("city");
+        String session = req.getParameter("session");
 
-        Connection connection = Singletons.getConnection();
-        try {
-            Statement statement = connection.createStatement();
-//            String sqlInsert = "INSERT INTO black_studio.client(username, password)" +
-//                    "VALUES('" + username + "','" + password + "');";
-//            System.out.println(sqlInsert);
-//            statement.execute(sqlInsert);
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO " +
-                    "black_studio.client(username,name, password, phone,email) VALUES (?, ?, ?, ?, ?)");
-            preparedStatement.setString(1, username);
-            preparedStatement.setString(2, name);
-            preparedStatement.setString(3, password);
-            preparedStatement.setString(4, phone);
-            preparedStatement.setString(5, email);
-            //выполняем запрос
-            preparedStatement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        Auth auth = new Auth();
+        auth.signUp(username, name, password, email, phone, birth_date, city, session, stars, time_signup);
     }
 }

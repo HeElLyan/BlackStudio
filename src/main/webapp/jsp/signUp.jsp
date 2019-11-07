@@ -42,9 +42,9 @@
                 <label for="session">Session
                     <input class="input-field" placeholder="!!!!" type="datetime-local" id="session" name="session" required>
                 </label>
-<%--                <label for="time_sign_up">Time Sign Up--%>
-<%--                    <input class="input-field" placeholder="!!!!" type="datetime-local" id="time_sign_up" name="time_sign_up" required>--%>
-<%--                </label>--%>
+                <label for="time_sign_up">Time Sign Up
+                    <input class="input-field" placeholder="!!!!" type="datetime-local" id="time_sign_up" name="time_sign_up" required>
+                </label>
                 <label for="stars">Stars
                     <input class="input-field" type="number" id="stars" name="stars">
                 </label>
