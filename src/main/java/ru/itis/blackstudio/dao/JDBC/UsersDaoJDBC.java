@@ -1,5 +1,6 @@
-package ru.itis.blackstudio.dao;
+package ru.itis.blackstudio.dao.JDBC;
 
+import ru.itis.blackstudio.dao.RowMapper;
 import ru.itis.blackstudio.dao.models.UserDao;
 
 import ru.itis.blackstudio.models.User;

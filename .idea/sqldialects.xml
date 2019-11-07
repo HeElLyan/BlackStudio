@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/itis/blackstudio/dao/UsersDaoJDBC.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/itis/blackstudio/dao/JDBC/MasterDaoJDBC.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/itis/blackstudio/dao/JDBC/UsersDaoJDBC.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/ru/itis/blackstudio/servlets/LogInServlet.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/ru/itis/blackstudio/servlets/SignUpServlet.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/test/resources/test.sql" dialect="MySQL" />

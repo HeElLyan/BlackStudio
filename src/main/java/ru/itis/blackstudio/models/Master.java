@@ -13,6 +13,17 @@ public class Master {
     private String city;
     private String working_style;
 
+    public Master(String name, String working_style) {
+        this.name = name;
+        this.working_style = working_style;
+    }
+
+    public Master(Integer id, String name, String working_style) {
+        this.id = id;
+        this.name = name;
+        this.working_style = working_style;
+    }
+
     public Master(String name, int phone, String email, String instagram, String vk, int experience, String url_works, String birth_date, String city, String working_style) {
         this.name = name;
         this.phone = phone;

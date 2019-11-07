@@ -1,6 +1,6 @@
 package ru.itis.blackstudio.servlets;
 
-import ru.itis.blackstudio.dao.models.UsersDao;
+import ru.itis.blackstudio.dao.models.UserDao;
 import ru.itis.blackstudio.models.User;
 import ru.itis.blackstudio.services.Auth;
 
@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @WebServlet("/logIn")
 public class LogInServlet extends HttpServlet {
-    private UsersDao usersDao;
+    private UserDao userDao;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
