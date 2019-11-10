@@ -78,9 +78,9 @@
         </div>
     </div>
 </footer>
-<script src="assets_main/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/main_str/assets_main/js_main/jquery.min.js"></script>
 <script src="assets_main/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets_main/js/script.min.js"></script>
+<script src="assets_main/js_main/script.min.js"></script>
 
 </body>
 </html>

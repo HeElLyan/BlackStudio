@@ -6,10 +6,14 @@ import ru.itis.blackstudio.dao.models.MasterDao;
 import ru.itis.blackstudio.models.Master;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class MasterDaoJDBC implements MasterDao {
+
+    private Connection connection;
+
     //language=SQL
     private final String SQL_SELECT_ALL = "SELECT * FROM black_studio.master;";
 
@@ -26,13 +30,7 @@ public class MasterDaoJDBC implements MasterDao {
             "SELECT * FROM black_studio.master WHERE working_style = ?";
 
     //language=SQL
-    private final String SQL_SELECT_BY_CITY =
-            "SELECT * FROM black_studio.master WHERE city = ?";
-
-    //language=SQL
     private final String SQL_INSERT = "INSERT INTO black_studio.master(id_master, name, phone, email, instagram, vk, experience, url_works, birth_date, city, working_style) VALUES (?,?,?,?,?,?,?,?,?,?,?) ";
-
-    private Connection connection;
 
     public MasterDaoJDBC(Connection connection) {
         this.connection = connection;
@@ -77,23 +75,6 @@ public class MasterDaoJDBC implements MasterDao {
         }
     }
 
-    public Optional<Master> findByCity(String city) {
-        try {
-            PreparedStatement statement = connection.prepareStatement(SQL_SELECT_BY_CITY);
-            statement.setString(1, city);
-            ResultSet resultSet = statement.executeQuery();
-
-            if (resultSet.next()) {
-                return Optional.of(rowMapper.rowMap(resultSet));
-
-            }
-            return Optional.empty();
-        } catch (SQLException e) {
-            throw new IllegalStateException(e);
-        }
-    }
-
-
     @Override
     public Optional<Master> find(Integer id) {
         return Optional.empty();
@@ -114,9 +95,25 @@ public class MasterDaoJDBC implements MasterDao {
 
     }
 
+
     @Override
     public List<Master> findAll() {
-        return null;
+        try {
+            List<Master> masters = new ArrayList<>();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(SQL_SELECT_ALL);
+            while (resultSet.next()) {
+                Integer id = resultSet.getInt("id_master");
+                String name = resultSet.getString("name");
+
+                Master master = new Master(id, name);
+
+                masters.add(master);
+            }
+            return masters;
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
 
