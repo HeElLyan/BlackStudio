@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aguafina+Script">
-    <link rel="stylesheet" href="assets_main/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets_main/css/styles.min.css">
+    <link rel="stylesheet" href="assets_main/fonts_main/font-awesome.min.css">
+    <link rel="stylesheet" href="assets_main/css_main/styles.min.css">
 </head>
 <body>
 <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
@@ -78,7 +78,7 @@
         </div>
     </div>
 </footer>
-<script src="${pageContext.request.contextPath}/main_str/assets_main/js_main/jquery.min.js"></script>
+<script src="assets_main/js_main/jquery.min.js"></script>
 <script src="assets_main/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets_main/js_main/script.min.js"></script>
 
