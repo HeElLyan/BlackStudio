@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aguafina+Script">
     <link rel="stylesheet" href="assets_main/fonts_main/font-awesome.min.css">
-    <link rel="stylesheet" href="assets_main/css_main/styles.min.css">
+    <!--<link rel="stylesheet" href="assets_main/css_main/styles.min.css"> -->
 </head>
 <body>
 <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
