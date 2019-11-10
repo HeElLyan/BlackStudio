@@ -10,8 +10,16 @@
 <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>registration</title>
-    <link rel="stylesheet" href="assets_registration/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets_registration/css_registration/styles.min.css">
+    <link rel="stylesheet" href="assets_registration/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="assets_registration/css_registration/styles.min.css" type="text/css">
+    <style type="text/css">
+        .image-holder {
+            background-image: url('assets_registration/img_registration/second.jpg');
+            margin-left: 1px;
+            font-size: 16px;
+            width: 284px;
+        }
+    </style>
 </head>
 <body>
 <div class="register-photo">

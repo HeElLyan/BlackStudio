@@ -24,7 +24,7 @@
         <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" /></div>
         <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color: #979797;">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a></form>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets_login/js/jquery.min.js"></script>
+    <script src="assets_login/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
