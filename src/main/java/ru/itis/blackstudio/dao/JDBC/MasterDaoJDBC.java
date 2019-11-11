@@ -105,16 +105,16 @@ public class MasterDaoJDBC implements MasterDao {
             while (resultSet.next()) {
                 Integer id = resultSet.getInt("id_master");
                 String name = resultSet.getString("name");
+                String photo_url = resultSet.getString("photo_url");
 
-                Master master = new Master(id, name);
+                Master master = new Master(id, name, photo_url);
 
                 masters.add(master);
+
             }
             return masters;
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
     }
-
-
 }

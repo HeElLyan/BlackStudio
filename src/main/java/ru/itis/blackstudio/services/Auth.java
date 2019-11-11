@@ -17,8 +17,8 @@ public class Auth {
         return Optional.empty();
     }
 
-    public void signUp(String username, String name, String password, String email, String phone, String birth_date, String city, String session, int stars, String time_signup) {
+    public void signUp(String username, String password, String name, String email, String phone, String birth_date) {
         UserDao userDao = new UsersDaoJDBC(Singletons.getConnection());
-        userDao.insert(username, name, password, email, phone, birth_date, city, session, stars, time_signup);
+        userDao.insert(username, password, name, email, phone, birth_date);
     }
 }

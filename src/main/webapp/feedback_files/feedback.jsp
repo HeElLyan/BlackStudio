@@ -10,10 +10,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="stylesheet" href="assets_feedback/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/feedback_files/assets_feedback/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
-    <link rel="stylesheet" href="assets_feedback/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/feedback_files/assets_feedback/fonts/font-awesome.min.css">
     <title>Feedback</title>
 </head>
 <body>
@@ -22,17 +22,17 @@
         <div
                 class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item" role="presentation"><a class="nav-link" href="about.html">главная</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="about.html">наши мастера</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="contact.html">услуги&nbsp;</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="post.html">Вход</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="feedback.html">Регистрация</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/main">Главная</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/masters">Наши мастера</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/service">Услуги&nbsp;</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/login">Вход</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/signup">Регистрация</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <header class="masthead">
-    <div class="overlay"><img src="assets_feedback/img/s1200.jpg"></div>
+    <div class="overlay"><img src="${pageContext.request.contextPath}/feedback_files/assets_feedback/img/s1200.jpg"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-lg-8 mx-auto" style="width: 918px;">
@@ -56,8 +56,8 @@
         </div>
     </div>
 </footer>
-<script src="assets_feedback/js/jquery.min.js"></script>
-<script src="assets_feedback/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets_feedback/js/script.min.js"></script>
+<script src="${pageContext.request.contextPath}/feedback_files/assets_feedback/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/feedback_files/assets_feedback/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/feedback_files/assets_feedback/js/script.min.js"></script>
 </body>
 </html>

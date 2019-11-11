@@ -25,7 +25,7 @@ public class UsersDaoJDBC implements UserDao {
             "SELECT * FROM black_studio.client WHERE username = ?";
 
     //language=SQL
-    private final String SQL_INSERT ="INSERT INTO black_studio.client(id_client, username, name, password, email, phone, birth_date, city, session, stars, time_signup) VALUES (?,?,?,?,?,?,?,?,?,?,?) ";
+    private final String SQL_INSERT ="INSERT INTO black_studio.client(id_client, username, name, password, email, phone, birth_date) VALUES (?,?,?,?,?,?,?) ";
 
     private Connection connection;
 
@@ -72,6 +72,7 @@ public class UsersDaoJDBC implements UserDao {
         }
     }
 
+
     @Override
     public Optional<User> find(Integer id) {
         return Optional.empty();
@@ -92,8 +93,9 @@ public class UsersDaoJDBC implements UserDao {
 
     }
 
+
     @Override
-    public void insert(String username, String name, String password, String email, String phone, String birth_date, String city, String session, int stars, String time_signup) {
+    public void insert(String username, String password, String name, String email, String phone, String birth_date) {
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_INSERT);
             preparedStatement.setInt(1, this.id++);
@@ -103,10 +105,6 @@ public class UsersDaoJDBC implements UserDao {
             preparedStatement.setString(5, email);
             preparedStatement.setString(6,phone);
             preparedStatement.setString(7,birth_date);
-            preparedStatement.setString(8,city);
-            preparedStatement.setString(9,session);
-            preparedStatement.setInt(10,stars);
-            preparedStatement.setString(11,time_signup);
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();

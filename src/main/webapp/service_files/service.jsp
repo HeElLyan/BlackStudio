@@ -11,11 +11,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Service</title>
-    <link rel="stylesheet" href="assets_service/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/service_files/assets_service/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-    <link rel="stylesheet" href="assets_service/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/service_files/assets_service/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-    <link rel="stylesheet" href="assets_service/css/styles.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/service_files/assets_service/css/styles.min.css">
 </head>
 <body>
 <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
@@ -23,11 +23,11 @@
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
-                <li role="presentation" class="nav-item"><a class="nav-link active" href="service.html">Главная</a></li>
-                <li role="presentation" class="nav-item"><a class="nav-link" href="features.html" style="color: #000000;">Наши мастера</a></li>
-                <li role="presentation" class="nav-item"><a class="nav-link" href="pricing.html" style="color: #000000;">Отзывы</a></li>
-                <li role="presentation" class="nav-item"><a class="nav-link" href="about-us.html" style="color: #000000;">Вход</a></li>
-                <li role="presentation" class="nav-item"><a class="nav-link" href="contact-us.html" style="color: #000000;">Регистрация</a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath}/main">Главная</a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/masters" style="color: #000000;">Наши мастера</a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/review" style="color: #000000;">Отзывы</a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/login" style="color: #000000;">Вход</a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/signup" style="color: #000000;">Регистрация</a></li>
             </ul>
         </div>
     </div>
@@ -69,9 +69,9 @@
         <p>Sh &amp; Sh 2019</p>
     </div>
 </footer>
-<script src="assets_service/js/jquery.min.js"></script>
-<script src="assets_service/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/service_files/assets_service/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/service_files/assets_service/bootstrap/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-<script src="assets_service/js/script.min.js"></script>
+<script src="${pageContext.request.contextPath}/service_files/assets_service/js/script.min.js"></script>
 </body>
 </html>

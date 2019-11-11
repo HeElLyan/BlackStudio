@@ -2,6 +2,7 @@ package ru.itis.blackstudio.servlets;
 
 import ru.itis.blackstudio.constants.Singletons;
 import ru.itis.blackstudio.services.Auth;
+import ru.itis.blackstudio.services.Hash;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,12 +14,12 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
 
-@WebServlet("/signUp")
+@WebServlet("/signup")
 public class SignUpServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getServletContext().getRequestDispatcher("/jsp/signUp.jsp").forward(request, response);
+        request.getServletContext().getRequestDispatcher("/registr/registration.jsp").forward(request, response);
     }
 
     @Override
@@ -26,15 +27,13 @@ public class SignUpServlet extends HttpServlet {
         String username = req.getParameter("username");
         String name = req.getParameter("name");
         String password = req.getParameter("password");
-        String phone = req.getParameter("phone");
-        int stars = Integer.parseInt(req.getParameter("stars"));
-        String time_signup = req.getParameter("time_signup");
+        password = Hash.getMd5Apache(password);
+
         String email = req.getParameter("email");
+        String phone = req.getParameter("phone");
         String birth_date = req.getParameter("birth_date");
-        String city = req.getParameter("city");
-        String session = req.getParameter("session");
 
         Auth auth = new Auth();
-        auth.signUp(username, name, password, email, phone, birth_date, city, session, stars, time_signup);
+        auth.signUp(username, password, name, email, phone, birth_date);
     }
 }

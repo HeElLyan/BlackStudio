@@ -11,26 +11,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Main</title>
-    <link rel="stylesheet" href="assets_main/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/main_str/assets_main/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aguafina+Script">
-    <link rel="stylesheet" href="assets_main/fonts_main/font-awesome.min.css">
-    <!--<link rel="stylesheet" href="assets_main/css_main/styles.min.css"> -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/main_str/assets_main/fonts_main/font-awesome.min.css">
+<%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/main_str/assets_main/css_main/styles.min.css">--%>
 </head>
 <body>
 <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
     <div class="container"><button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button><a class="navbar-brand" href="index.html">Black Studio</a><div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="nav navbar-nav ml-auto">
-            <li role="presentation" class="nav-item"><a class="nav-link" href="index.html" style="margin-left: 0px;padding-left: 20px;background-repeat: repeat;">Наши мастера</a></li>
-            <li role="presentation" class="nav-item"><a class="nav-link" href="about.html">Услуги</a></li>
-            <li role="presentation" class="nav-item"><a class="nav-link" href="contact.html">Отзывы</a></li>
-            <li role="presentation" class="nav-item"><a class="nav-link" href="post.html">вход</a></li>
-            <li role="presentation" class="nav-item"><a class="nav-link" href="post.html">Регистрация</a></li>
+            <li role="presentation" class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/masters" style="margin-left: 0px;padding-left: 20px;background-repeat: repeat;">Наши мастера</a></li>
+            <li role="presentation" class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/service">Услуги</a></li>
+            <li role="presentation" class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/review">Отзывы</a></li>
+            <li role="presentation" class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/login">Вход</a></li>
+            <li role="presentation" class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/signup">Регистрация</a></li>
         </ul>
     </div></div>
 </nav>
-<header class="masthead" style="background-image:url('assets_main/img_main/first.jpg');">
+<header class="masthead" style="background-image:url('${pageContext.request.contextPath}/main_str/assets_main/img_main/first.jpg');">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -78,9 +78,9 @@
         </div>
     </div>
 </footer>
-<script src="assets_main/js_main/jquery.min.js"></script>
-<script src="assets_main/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets_main/js_main/script.min.js"></script>
+<script src="${pageContext.request.contextPath}/main_str/assets_main/js_main/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/main_str/assets_main/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/main_str/assets_main/js_main/script.min.js"></script>
 
 </body>
 </html>

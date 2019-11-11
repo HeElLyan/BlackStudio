@@ -1,5 +1,9 @@
 package ru.itis.blackstudio.servlets;
 
+import ru.itis.blackstudio.constants.Singletons;
+import ru.itis.blackstudio.dao.JDBC.UsersDaoJDBC;
+import ru.itis.blackstudio.dao.models.UserDao;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
