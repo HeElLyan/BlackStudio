@@ -18,11 +18,11 @@ public class MastersServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getServletContext().getRequestDispatcher("/masters/masters.jsp").forward(request,response);
         MasterDao masterDao = new MasterDaoJDBC(Singletons.getConnection());
         List<Master> masters = masterDao.findAll();
 
         request.setAttribute("masters", masters);
+        request.getServletContext().getRequestDispatcher("/masters/masters.jsp").forward(request,response);
 
 //        String[] s = request.getRequestURI().split("/");
 //        int artist_id = Integer.parseInt(s[s.length - 1]);

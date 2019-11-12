@@ -26,7 +26,6 @@
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/main" style="color: rgb(0,0,0);">Главная страница</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/service" style="color: rgb(0,0,0);">Услуги</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/review" style="color: rgb(0,0,0);">Отзывы</a></li>
                     </ul>
                 </div>
             </div>
@@ -45,17 +44,18 @@
 <section class="showcase"></section><section class="testimonials text-center bg-light">
     <div class="container">
         <h2 class="mb-5" style="color: rgb(116,39,94);font-family: Adamina, serif;">Разрешите представить</h2>
-        <%--@elvariable id="masters" type="java.util.List"--%>
 
         <div class="row">
             <div class="col-lg-4">
-                <div class="mx-auto testimonial-item mb-5 mb-lg-0">
+
+                    <%--@elvariable id="masters" type="java.util.List"--%>
                     <c:forEach var="master" items="${masters}">
-                        <img class="rounded-circle img-fluid mb-3" src="${master.photo_url}" style="background-image: url('${master.photo_url}');" alt=""/>
+                        <div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3" src="${pageContext.request.contextPath}/masters${master.photo_url}" style="background-image: url('${pageContext.request.contextPath}${master.photo_url}');"  alt=""/>
                         <h5>${master.name}</h5>
-                        <p class="font-weight-light mb-0">Блаблаблабла лалалалаалала<a href="${pageContext.request.contextPath}/profile">Профиль ${master.name}</a></p>
+                        <p class="font-weight-light mb-0">${master.working_style}<a href="${pageContext.request.contextPath}/masters/masterPage/${master.id_master}">Профиль ${master.name}</a></p>
+                        </div>
                     </c:forEach>
-                </div>
+
             </div>
 <%--            <div class="col-lg-4">--%>
 <%--                <div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3" src="${pageContext.request.contextPath}/masters/assets_masters/img/alexandr-kochemasov.png" style="background-image: url('${pageContext.request.contextPath}/masters/assets_masters/img/alexandr-kochemasov.png');" alt=""/>--%>

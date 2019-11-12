@@ -1,14 +1,12 @@
 package ru.itis.blackstudio.models;
 
-public class Works {
+public class Work {
     private int id_master;
     private String url_work;
-    private Master master;
 
-    public Works(int id_master, String url_work, Master master) {
+    public Work(int id_master, String url_work) {
         this.id_master = id_master;
         this.url_work = url_work;
-        this.master = master;
     }
 
     public int getId_master() {
@@ -25,13 +23,5 @@ public class Works {
 
     public void setUrl_work(String url_work) {
         this.url_work = url_work;
-    }
-
-    public Master getMaster() {
-        return master;
-    }
-
-    public void setMaster(Master master) {
-        this.master = master;
     }
 }

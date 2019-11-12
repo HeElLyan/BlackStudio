@@ -1,3 +1,6 @@
+<%--@elvariable id="id_master" type=""--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--@elvariable id="master" type="ru.itis.blackstudio.models.Master"--%>
 <%--
   Created by IntelliJ IDEA.
   User: Алина
@@ -24,7 +27,7 @@
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/main">Главная страница</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/service">Услуги</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/review">Отзывы</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/review/${id_master}">Отзывы</a></li>
             </ul>
         </div>
     </div>
@@ -32,16 +35,19 @@
 <main class="page lanidng-page">
     <section class="master_Margo">
         <div class="container">
-            <div class="avatar"><img src="${pageContext.request.contextPath}/masterMargo/assets_Margo/img/anzhelika-nalobina.png"></div>
-                <p style="color: #383d41; size: A3">Hello! Lalaalalalalalala Стаж Стили</p>
+<%--            <div class="avatar"><img src="${pageContext.request.contextPath}/masterMargo${master.photo_url}" style="background-image: url('${pageContext.request.contextPath}/masterMargo${master.photo_url}');" alt="">--%>
+                <h3 style="color: #383d41; size: A3">Master's name:${master.name}</h3>
+                <h3 style="color: #383d41; size: A3">Working style: ${master.working_style}</h3>
+<%--            </div>--%>
         </div>
     </section>
     <section class="portfolio-block photography">
         <div class="container">
             <div class="row no-gutters">
-                <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="${pageContext.request.contextPath}/masterMargo/assets_Margo/img/ta.jpg"></a></div>
-                <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="${pageContext.request.contextPath}/masterMargo/assets_Margo/img/tat.jpg" style="background-image: url('assets_Margo/img/tat.jpg');"></a></div>
-                <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="${pageContext.request.contextPath}/masterMargo/assets_Margo/img/7d9e8a7afee615b2e47886ed4b3d7fed.jpg" style="background-image: url('${pageContext.request.contextPath}/masterMargo/assets_Margo/img/7d9e8a7afee615b2e47886ed4b3d7fed.jpg');"></a></div>
+                <%--@elvariable id="works" type="java.util.List"--%>
+                <c:forEach var="work" items="${works}">
+                   <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="${pageContext.request.contextPath}${work.url_work}" style="background-image: url('${pageContext.request.contextPath}/masterMargo/assets_Margo/img/7d9e8a7afee615b2e47886ed4b3d7fed.jpg');" alt=""></a></div>
+                </c:forEach>
             </div>
         </div>
     </section><section class="portfolio-block call-to-action border-bottom">

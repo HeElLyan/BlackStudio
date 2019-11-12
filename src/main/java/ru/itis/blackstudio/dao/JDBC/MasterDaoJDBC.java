@@ -37,16 +37,32 @@ public class MasterDaoJDBC implements MasterDao {
     }
 
     private RowMapper<Master> rowMapper = resultSet -> {
-        int id = resultSet.getInt("id_master");
+        int id_master = resultSet.getInt("id_master");
         String name = resultSet.getString("name");
         String working_style = resultSet.getString("working_style");
-        return new Master(id, name, working_style);
+        return new Master(id_master, name, working_style);
     };
 
     public Optional<Master> findByName(String name) {
         try {
             PreparedStatement statement = connection.prepareStatement(SQL_SELECT_BY_NAME);
             statement.setString(1, name);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                return Optional.of(rowMapper.rowMap(resultSet));
+
+            }
+            return Optional.empty();
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    public Optional<Master> findById(int id_master) {
+        try {
+            PreparedStatement statement = connection.prepareStatement(SQL_SELECT_BY_ID);
+            statement.setInt(1, id_master);
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
@@ -103,11 +119,12 @@ public class MasterDaoJDBC implements MasterDao {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(SQL_SELECT_ALL);
             while (resultSet.next()) {
-                Integer id = resultSet.getInt("id_master");
+                int id_master = resultSet.getInt("id_master");
                 String name = resultSet.getString("name");
                 String photo_url = resultSet.getString("photo_url");
+                String working_style = resultSet.getString("working_style");
 
-                Master master = new Master(id, name, photo_url);
+                Master master = new Master(id_master, name, photo_url, working_style);
 
                 masters.add(master);
 

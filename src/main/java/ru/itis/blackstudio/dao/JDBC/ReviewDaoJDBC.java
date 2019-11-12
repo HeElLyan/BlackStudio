@@ -2,6 +2,7 @@ package ru.itis.blackstudio.dao.JDBC;
 
 import ru.itis.blackstudio.dao.CrudDao;
 import ru.itis.blackstudio.dao.RowMapper;
+import ru.itis.blackstudio.dao.models.ReviewDao;
 import ru.itis.blackstudio.models.Review;
 
 import java.sql.*;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ReviewDaoJDBC implements CrudDao<Review> {
+public class ReviewDaoJDBC implements ReviewDao {
     private Connection connection;
 
     //language=SQL
@@ -69,14 +70,18 @@ public class ReviewDaoJDBC implements CrudDao<Review> {
 
     }
 
+    @Override
     public List<Review> findAll() {
+        return null;
+    }
+
+    public List<Review> findAllById(int id_master) {
         try {
             List<Review> reviews = new ArrayList<>();
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(SQL_SELECT_ALL);
             while (resultSet.next()) {
                 int id_client = resultSet.getInt("id_client");
-                int id_master = resultSet.getInt("id_master");
                 String review_1 = resultSet.getString("review");
 
                 Review review = new Review(id_client, id_master, review_1);
@@ -86,6 +91,19 @@ public class ReviewDaoJDBC implements CrudDao<Review> {
             return reviews;
         } catch (SQLException e) {
             throw new IllegalStateException(e);
+        }
+    }
+
+    @Override
+    public void insert(int id_master, int id_client, String review) {
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_INSERT);
+            preparedStatement.setInt(1, id_client);
+            preparedStatement.setInt(2, id_master);
+            preparedStatement.setString(3, review);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

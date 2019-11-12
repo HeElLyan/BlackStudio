@@ -19,12 +19,11 @@ public class LogInServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getSession().getAttribute("isLogIn").equals(0)) {
+        if (request.getSession().getAttribute("current_user") == null) {
             request.getServletContext().getRequestDispatcher("/login_files/login.jsp").forward(request, response);
         } else {
-            response.sendRedirect("/main_str/main_str.jsp");
+            response.sendRedirect(request.getContextPath() + "/main");
         }
-
     }
 
     @Override
@@ -35,18 +34,16 @@ public class LogInServlet extends HttpServlet {
         Auth auth = new Auth();
         Optional<User> user = auth.signIn(username, password);
 
+        if(user.isPresent()){
+            HttpSession session = request.getSession();
         request.getSession().setAttribute("current_user", user.get());
-        request.getSession().setAttribute("isLogin", new Integer(1));
-        response.sendRedirect("/profile/" +
-                ((User)request.getSession().getAttribute("current_user")).getUsername());
+            response.sendRedirect(request.getContextPath() + "/profile/" +
+
+                ((User)request.getSession().getAttribute("current_user")).getUsername()
+            );
 //                UserDao dao = new UsersDaoJDBC(Singletons.getConnection());
-//
+        }
 //        Optional<User> usr = dao.findByUsername("el");
 //        request.setAttribute("user", usr.get().getPassword());
-        if(user.isPresent()){
-            request.getServletContext().getRequestDispatcher("/main_str/main_str.jsp").forward(request, response);
-        } else {
-            doGet(request, response);
-        }
     }
 }

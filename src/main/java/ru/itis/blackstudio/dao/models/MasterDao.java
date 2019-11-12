@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface MasterDao extends CrudDao<Master> {
     Optional<Master> findByName(String name);
+    Optional<Master> findById(int id);
 }
