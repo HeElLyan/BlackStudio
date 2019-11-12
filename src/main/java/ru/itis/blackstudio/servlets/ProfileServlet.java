@@ -23,9 +23,9 @@ public class ProfileServlet extends HttpServlet {
 //            if (username != null && !username.isEmpty()) {
 //                UserDao dao = new UsersDaoJDBC(Singletons.getConnection());
 //                dao.findByUsername(username);
-                User user = (User) request.getSession().getAttribute("current_user");
-                request.setAttribute("user", user);
-                request.getServletContext().getRequestDispatcher("/jsp/profile.jsp").forward(request, response);
+            User user = (User) request.getSession().getAttribute("current_user");
+            request.setAttribute("user", user);
+            request.getServletContext().getRequestDispatcher("/profile/profile.jsp").forward(request, response);
 
 
     }
