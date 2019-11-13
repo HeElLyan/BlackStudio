@@ -11,6 +11,11 @@ public class Review {
         this.review = review;
     }
 
+    public Review(int id_client, String review) {
+        this.id_client = id_client;
+        this.review = review;
+    }
+
     public int getId_master() {
         return id_master;
     }

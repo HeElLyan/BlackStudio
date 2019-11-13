@@ -27,7 +27,8 @@
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/main">Главная страница</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/service">Услуги</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/review/${id_master}">Отзывы</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/review">Отзывы</a></li>
+<%--                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/review/${id_master}">Отзывы</a></li>--%>
             </ul>
         </div>
     </div>

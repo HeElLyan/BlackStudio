@@ -43,8 +43,10 @@
     </div>
 </header><footer>
     <div class="input-group">
-        <div class="input-group-prepend"><span class="input-group-text" style="background-color: rgb(225,225,225);">Отзыв</span></div><input type="text" class="form-control" />
-        <div class="input-group-append"><button class="btn btn-primary" type="button" style="background-color: rgb(71,24,118);">Отправить</button></div>
+        <form method="post">
+            <div class="input-group-prepend"><span class="input-group-text" name="review" style="background-color: rgb(225,225,225);">Отзыв</span></div><input type="text" class="form-control" />
+            <div class="input-group-append"><button class="btn btn-primary" type="submit" style="background-color: rgb(71,24,118);">Отправить</button></div>
+        </form>
     </div>
     <footer></footer>
     <div class="container">

@@ -22,7 +22,11 @@
         <div class="illustration"><i class="icon ion-ios-body" style="background-color: rgba(255,255,255,0);color: rgba(255,255,255,0.97);"></i></div>
         <div class="form-group"><input class="form-control" type="text" name="username" placeholder="Username" style="filter: blur(0px) hue-rotate(0deg) invert(0%) saturate(117%);" /></div>
         <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" /></div>
-        <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color: #979797;">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a></form>
+        <label class="form-group">
+            <input type="checkbox" value="remember-me" name="remember"> Remember me
+        </label>
+        <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color: #979797;">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a>
+    </form>
     </div>
     <script src="${pageContext.request.contextPath}/login_files/assets_login/js/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/login_files/assets_login/bootstrap/js/bootstrap.min.js"></script>

@@ -16,12 +16,12 @@ public class ReviewDaoJDBC implements ReviewDao {
     //language=SQL
     private final String SQL_SELECT_ALL = "SELECT * FROM black_studio.review;";
 
-    //language=SQL
-    private final String SQL_SELECT_BY_ID =
-            "SELECT * FROM black_studio.review WHERE id_master = ?";
+//    //language=SQL
+//    private final String SQL_SELECT_BY_ID =
+//            "SELECT * FROM black_studio.review WHERE id_master = ?";
 
     //language=SQL
-    private final String SQL_INSERT = "INSERT INTO black_studio.review(id_master, id_client, review) VALUES (?,?,?) ";
+    private final String SQL_INSERT = "INSERT INTO black_studio.review(id_client, review) VALUES (?,?) ";
 
     public ReviewDaoJDBC(Connection connection) {
         this.connection = connection;
@@ -34,21 +34,21 @@ public class ReviewDaoJDBC implements ReviewDao {
         return new Review(id_client, id_master, review);
     };
 
-    public Optional<Review> findByMasterId(String id_master) {
-        try {
-            PreparedStatement statement = connection.prepareStatement(SQL_SELECT_BY_ID);
-            statement.setString(1, id_master);
-            ResultSet resultSet = statement.executeQuery();
-
-            if (resultSet.next()) {
-                return Optional.of(rowMapper.rowMap(resultSet));
-
-            }
-            return Optional.empty();
-        } catch (SQLException e) {
-            throw new IllegalStateException(e);
-        }
-    }
+//    public Optional<Review> findByMasterId(String id_master) {
+//        try {
+//            PreparedStatement statement = connection.prepareStatement(SQL_SELECT_BY_ID);
+//            statement.setString(1, id_master);
+//            ResultSet resultSet = statement.executeQuery();
+//
+//            if (resultSet.next()) {
+//                return Optional.of(rowMapper.rowMap(resultSet));
+//
+//            }
+//            return Optional.empty();
+//        } catch (SQLException e) {
+//            throw new IllegalStateException(e);
+//        }
+//    }
 
     @Override
     public Optional<Review> find(Integer id) {
@@ -95,12 +95,11 @@ public class ReviewDaoJDBC implements ReviewDao {
     }
 
     @Override
-    public void insert(int id_master, int id_client, String review) {
+    public void insert(int id_client, String review) {
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_INSERT);
             preparedStatement.setInt(1, id_client);
-            preparedStatement.setInt(2, id_master);
-            preparedStatement.setString(3, review);
+            preparedStatement.setString(2, review);
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -25,8 +25,7 @@ public class ProfileServlet extends HttpServlet {
 //                dao.findByUsername(username);
             User user = (User) request.getSession().getAttribute("current_user");
             request.setAttribute("user", user);
-            request.getServletContext().getRequestDispatcher("/profile/profile.jsp").forward(request, response);
-
+        request.getServletContext().getRequestDispatcher("/jsp/profile.jsp").forward(request, response);
 
     }
 }
