@@ -1,0 +1,122 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Алина
+  Date: 28.11.2019
+  Time: 9:25
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Расписание</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+</head>
+<body>
+<nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container"><a class="navbar-brand" href="about.html">Black studio</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+        <div
+                class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item" role="presentation"><a class="nav-link" href="about.html">главная</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="about.html">наши мастера</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="about.html">услуги&nbsp;</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="about.html">Вход</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="about.html">Регистрация</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<header class="masthead" style="background-image:url('assets/img/s1200.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto">
+                <div class="site-heading">
+                    <h1>РАСПИСАНИЕ</h1><span class="subheading">Приходите в удобное для вас время! Всегда вам рады!</span></div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-lg-8 mx-auto">
+            <p>Выберите время, нажмите на кнопку и запись будет выполнена</p>
+        </div>
+    </div>
+    <hr>
+    <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <td>9 января</td>
+            <td>четверг</td>
+            <td><button><p>10:00 - 11:00</p></button></td>
+            <td><button><p>11:15 - 12:15</p></button></td>
+            <td><button><p>12:30 - 13:30</p></button></td>
+            <td><button><p>13:45 - 14:45</p></button></td>
+        </tr>
+        <tr>
+            <td>10 января</td>
+            <td>пятница</td>
+            <td><button><p>10:00 - 11:00</p></button></td>
+            <td><button><p>11:15 - 12:15</p></button></td>
+            <td><button><p>12:30 - 13:30</p></button></td>
+            <td><button><p>13:45 - 14:45</p></button></td>
+        </tr>
+        <tr>
+            <td>14 января</td>
+            <td>вторник</td>
+            <td><button><p>16:00 - 17:00</p></button></td>
+            <td><button><p>17:15 - 18:15</p></button></td>
+            <td><button><p>18:30 - 19:30</p></button></td>
+            <td><button><p>19:45 - 20:45</p></button></td>
+        </tr>
+        <tr>
+            <td>15 января</td>
+            <td>среда</td>
+            <td><button><p>16:00 - 17:00</p></button></td>
+            <td><button><p>17:15 - 18:15</p></button></td>
+            <td><button><p>18:30 - 19:30</p></button></td>
+            <td><button><p>19:45 - 20:45</p></button></td>
+        </tr>
+        <tr>
+            <td>16 января</td>
+            <td>четверг</td>
+            <td><button><p>10:00 - 11:00</p></button></td>
+            <td><button><p>11:15 - 12:15</p></button></td>
+            <td><button><p>12:30 - 13:30</p></button></td>
+            <td><button><p>13:45 - 14:45</p></button></td>
+        </tr>
+        <tr>
+            <td>17 января</td>
+            <td>пятница</td>
+            <td><button><p>10:00 - 11:00</p></button></td>
+            <td><button><p>11:15 - 12:15</p></button></td>
+            <td><button><p>12:30 - 13:30</p></button></td>
+            <td><button><p>13:45 - 14:45</p></button></td>
+        </tr>
+        </tbody>
+    </table>
+    <footer>
+        <div class="container">
+            <div class="row" style="height: 200px;">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <p class="post-meta" style="color: rgb(122,123,123);"><br><strong>Наши контакты:</strong><br><strong>Адрес: Кремлёвска 35</strong><br><strong>Телефон: +7-919-246-34-76</strong><br><br></p>
+                    <p class="text-muted copyright">Sh &amp; Sh 2019</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
+</body>
+</html>
