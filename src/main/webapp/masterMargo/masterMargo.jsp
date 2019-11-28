@@ -33,7 +33,10 @@
     <section class="master_Margo">
         <div class="container">
             <div class="avatar"><img src="assets_Margo/img/anzhelika-nalobina.png"></div>
-                <p style="color: #383d41; size: A3">Hello! Lalaalalalalalala Стаж Стили</p>
+            <button><p>Записаться</p></button>
+            <p style="color: #383d41; size: A3">Мастер занимается пирсингом на всех частях тела.</p>
+            <p style="color: #383d41; size: A3">Также является профессиональным тату-мастером.</p>
+            <p style="color: #383d41; size: A3">Основные стили татуировок:Нео-традишнл, Орнаментал, Этника.</p>
         </div>
     </section>
     <section class="portfolio-block photography">
