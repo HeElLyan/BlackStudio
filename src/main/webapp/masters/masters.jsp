@@ -18,19 +18,20 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/masters/assets_masters/css/styles.min.css">
 </head>
 <body>
-<nav class="navbar navbar-light navbar-expand bg-light navigation-clean" style="color: rgb(0,0,0);">
-    <div class="container"><a class="navbar-brand" href="#">Black Studio</a>
-        <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color: rgb(248,249,250);">
-            <div class="container"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/main" style="color: rgb(0,0,0);">Главная страница</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/service" style="color: rgb(0,0,0);">Услуги</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav><button class="navbar-toggler" data-toggle="collapse"></button></div>
-</nav>
+<%--<nav class="navbar navbar-light navbar-expand bg-light navigation-clean" style="color: rgb(0,0,0);">--%>
+<%--    <div class="container"><a class="navbar-brand" href="#">Black Studio</a>--%>
+<%--        <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color: rgb(248,249,250);">--%>
+<%--            <div class="container"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>--%>
+<%--                <div class="collapse navbar-collapse" id="navcol-1">--%>
+<%--                    <ul class="nav navbar-nav ml-auto">--%>
+<%--                        <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/main" style="color: rgb(0,0,0);">Главная страница</a></li>--%>
+<%--                        <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/service" style="color: rgb(0,0,0);">Услуги</a></li>--%>
+<%--                    </ul>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </nav><button class="navbar-toggler" data-toggle="collapse"></button></div>--%>
+<%--</nav>--%>
+<%@ include file="../jsp/header.jsp" %>
 <header>
     <div class="overlay"><img src="${pageContext.request.contextPath}/masters/assets_masters/img/s1200.jpg"></div>
     <div class="container">
@@ -50,9 +51,9 @@
 
                     <%--@elvariable id="masters" type="java.util.List"--%>
                     <c:forEach var="master" items="${masters}">
-                        <div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3" src="${pageContext.request.contextPath}/masters${master.photo_url}" style="background-image: url('${pageContext.request.contextPath}${master.photo_url}');"  alt=""/>
-                        <h5>${master.name}</h5>
-                        <p class="font-weight-light mb-0">${master.working_style}<a href="${pageContext.request.contextPath}/masters/masterPage/${master.id_master}">Профиль ${master.name}</a></p>
+                        <div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3" src="${pageContext.request.contextPath}/masters${master.urlPhoto}" style="background-image: url('${pageContext.request.contextPath}${master.urlPhoto}');"  alt=""/>
+                        <h5>Мастер ${master.name}</h5>
+                        <p class="font-weight-light mb-0"> Стиль: ${master.workingStyle}<a href="${pageContext.request.contextPath}/masters/masterPage/${master.masterId}"> Профиль ${master.name}</a></p>
                         </div>
                     </c:forEach>
 
@@ -73,6 +74,7 @@
 
     </div>
 </section>
+<%@ include file="../jsp/footer.jsp" %>
 <script src="${pageContext.request.contextPath}/masters/assets_masters/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/masters/assets_masters/bootstrap/js/bootstrap.min.js"></script>
 </body>

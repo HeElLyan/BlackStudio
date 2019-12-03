@@ -1,61 +1,65 @@
 package ru.itis.blackstudio.servlets;
 
-import ru.itis.blackstudio.constants.Singletons;
-import ru.itis.blackstudio.dao.JDBC.CookieDaoJDBC;
-import ru.itis.blackstudio.dao.models.CookieDao;
-import ru.itis.blackstudio.dao.models.UserDao;
+import ru.itis.blackstudio.constants.*;
+import ru.itis.blackstudio.exceptions.IncorrectLoginOrPasswordException;
 import ru.itis.blackstudio.models.User;
-import ru.itis.blackstudio.models.UserPass;
-import ru.itis.blackstudio.services.Auth;
+import ru.itis.blackstudio.services.ServiceFactory;
+import ru.itis.blackstudio.utils.CookiesUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.util.Optional;
 
-@WebServlet("/login")
+@WebServlet(Urls.LOGIN)
 public class LogInServlet extends HttpServlet {
-    private UserDao userDao;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getSession().getAttribute("current_user") == null) {
-            request.getServletContext().getRequestDispatcher("/login_files/login.jsp").forward(request, response);
-        } else {
-            response.sendRedirect(request.getContextPath() + "/main");
-        }
+//        if (request.getSession().getAttribute("current_user") == null) {
+////            request.getServletContext().getRequestDispatcher(JspPaths.LOGIN).forward(request, response);
+////        } else {
+////            response.sendRedirect(request.getContextPath() + Urls.MAIN);
+////        }
+        request.getServletContext().getRequestDispatcher(JspPaths.LOGIN).forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        Auth auth = new Auth();
-        Optional<User> user = auth.signIn(username, password);
+        String username = request.getParameter(Parameters.LOGIN);
+        String password = request.getParameter(Parameters.PASSWORD);
 
-        if(user.isPresent()){
-            HttpSession session = request.getSession();
-            request.getSession().setAttribute("current_user", user.get());
-            response.sendRedirect(request.getContextPath() + "/profile/" +
-                ((User)request.getSession().getAttribute("current_user")).getUsername()
-            );
+//        Optional<User> user = ServiceFactory.auth().signIn(username, password);
+//
+//        if(user.isPresent()){
+//            request.getSession(true).setAttribute(Attributes.SESSION_USER_KEY, user.get());
+//            response.sendRedirect(request.getContextPath() + Urls.USER_PROFILE + "/" +
+//                    ((User)request.getSession().getAttribute(Attributes.SESSION_USER_KEY)).getUsername()
+//            );
+//        }
+
+        boolean doRemember = Optional.ofNullable(request.getParameter(Parameters.REMEMBER)).isPresent();
+
+        try {
+            User user = ServiceFactory.auth().signIn(username, password);
+            request.getSession(true).setAttribute(Attributes.SESSION_USER_KEY, user);
+
+            if (doRemember)
+                CookiesUtil.addUserId(user.getId(), response);
+            response.sendRedirect(request.getContextPath() + Urls.USER_PROFILE + "/" +
+                    ((User) request.getSession().getAttribute(Attributes.SESSION_USER_KEY)).getUsername());
+        } catch (IncorrectLoginOrPasswordException e) {
+            response.sendRedirect(request.getContextPath() + Urls.MAIN);
         }
 
-        UserPass usps = new UserPass(username,password);
-        boolean rememberMe = request.getParameter("remember") != null;
-        if (rememberMe) {
-            CookieDao cookieDao = new CookieDaoJDBC(Singletons.getConnection());
-            Cookie cookie = new Cookie("remember",
-                    URLEncoder.encode(cookieDao.add(usps), "UTF-8"));
-            cookie.setMaxAge(60*60*24*365);
-            cookie.setSecure(false);
-            response.addCookie(cookie);
-//            System.out.println("Cookie is added!!!");
-        }
-//        Optional<User> usr = dao.findByUsername("el");
-//        request.setAttribute("user", usr.get().getPassword());
+//        // SOOOOOOS
+//        UserPass usps = new UserPass(username,password);
+//        boolean rememberMe = request.getParameter("remember") != null;
+//        if (rememberMe) {
+//            CookieService cookieService = new CookieService();
+//            cookieService.cookie(usps);
+//        }
     }
 }

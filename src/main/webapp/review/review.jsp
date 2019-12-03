@@ -1,0 +1,60 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Алина
+  Date: 07.11.2019
+  Time: 9:08
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/review/assets_feedback/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/review/assets_feedback/fonts/font-awesome.min.css">
+    <title>Feedback</title>
+</head>
+<body>
+<%--<nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">--%>
+<%--    <div class="container"><a class="navbar-brand" href="feedback.html">Black studio</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>--%>
+<%--        <div--%>
+<%--                class="collapse navbar-collapse" id="navbarResponsive">--%>
+<%--            <ul class="nav navbar-nav ml-auto">--%>
+<%--                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/main">Главная</a></li>--%>
+<%--                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/masters">Наши мастера</a></li>--%>
+<%--                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/service">Услуги&nbsp;</a></li>--%>
+<%--                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/login">Вход</a></li>--%>
+<%--                <li class="nav-item" role="presentation"><a class="nav-link" href="${pageContext.request.contextPath}/signup">Регистрация</a></li>--%>
+<%--            </ul>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</nav>--%>
+<%@ include file="../jsp/header.jsp" %>
+<header class="masthead">
+    <div class="overlay"><img src="${pageContext.request.contextPath}/review/assets_feedback/img/s1200.jpg"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto" style="width: 918px;">
+                <div class="site-heading">
+                    <h1>ОТЗЫВЫ</h1><span class="subheading">Здесь вы можете узнать о впечатлениях и опыте наших клиентов, а так же оставить свои</span></div>
+            </div>
+        </div>
+    </div>
+</header><footer>
+    <div class="input-group">
+        <form method="post">
+            <div class="input-group-prepend"><span class="input-group-text" name="review" style="background-color: rgb(225,225,225);">Отзыв</span></div><input type="text" class="form-control" />
+            <div class="input-group-prepend"><span class="input-group-text" name="master_name" style="background-color: rgb(225,225,225);">Введите имя мастера:</span></div><input type="text" class="form-control" />
+            <div class="input-group-append"><button class="btn btn-primary" type="submit" style="background-color: rgb(71,24,118);">Отправить</button></div>
+        </form>
+    </div>
+    <footer></footer>
+    <%@ include file="../jsp/footer.jsp" %>
+</footer>
+<script src="${pageContext.request.contextPath}/review/assets_feedback/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/review/assets_feedback/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/review/assets_feedback/js/script.min.js"></script>
+</body>
+</html>

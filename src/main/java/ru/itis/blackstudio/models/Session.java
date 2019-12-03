@@ -3,14 +3,14 @@ package ru.itis.blackstudio.models;
 public class Session {
     private Integer id;
     private String time;
-    private User user_session;
-    private Master master_timetable;
+    private User userSession;
+    private Master masterTimetable;
 
-    public Session(Integer id, String time, User user_session, Master master_timetable) {
+    public Session(Integer id, String time, User userSession, Master masterTimetable) {
         this.id = id;
         this.time = time;
-        this.user_session = user_session;
-        this.master_timetable = master_timetable;
+        this.userSession = userSession;
+        this.masterTimetable = masterTimetable;
     }
 
     public Integer getId() {
@@ -29,19 +29,19 @@ public class Session {
         this.time = time;
     }
 
-    public User getUser_session() {
-        return user_session;
+    public User getUserSession() {
+        return userSession;
     }
 
-    public void setUser_session(User user_session) {
-        this.user_session = user_session;
+    public void setUserSession(User userSession) {
+        this.userSession = userSession;
     }
 
-    public Master getMaster_timetable() {
-        return master_timetable;
+    public Master getMasterTimetable() {
+        return masterTimetable;
     }
 
-    public void setMaster_timetable(Master master_timetable) {
-        this.master_timetable = master_timetable;
+    public void setMasterTimetable(Master masterTimetable) {
+        this.masterTimetable = masterTimetable;
     }
 }

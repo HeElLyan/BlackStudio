@@ -1,27 +1,33 @@
 package ru.itis.blackstudio.models;
 
 public class Work {
-    private int id_master;
-    private String url_work;
+    private Integer id;
+    private Integer masterId;
+    private String urlWork;
 
-    public Work(int id_master, String url_work) {
-        this.id_master = id_master;
-        this.url_work = url_work;
+    public Integer getId() {
+        return id;
     }
 
-    public int getId_master() {
-        return id_master;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setId_master(int id_master) {
-        this.id_master = id_master;
+    public int getMasterId() {
+        return masterId;
     }
 
-    public String getUrl_work() {
-        return url_work;
+    public Work setMasterId(Integer masterId) {
+        this.masterId = masterId;
+        return this;
     }
 
-    public void setUrl_work(String url_work) {
-        this.url_work = url_work;
+    public String getUrlWork() {
+        return urlWork;
+    }
+
+    public Work setUrlWork(String urlWork) {
+        this.urlWork = urlWork;
+        return this;
     }
 }
